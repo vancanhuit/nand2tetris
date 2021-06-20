@@ -1,0 +1,11 @@
+name: Simulator Tests
+on: [push]
+jobs:
+  Hardware-Simulator-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout respository code
+        uses: actions/checkout@v2
+      - name: Run hardware simulator tests
+        run: ./run-simulator-tests
+

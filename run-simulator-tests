@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+set -u
+
+files=$(find projects/{01,02,03} -name '*.tst' -type f)
+
+[[ -n ${files} ]] && {
+    for file in ${files}; do
+        echo "Running test file: ${file}"
+        $(pwd)/tools/HardwareSimulator.sh ${file}
+    done
+}
