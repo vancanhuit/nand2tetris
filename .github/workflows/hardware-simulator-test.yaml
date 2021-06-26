@@ -1,4 +1,4 @@
-name: Simulator Tests
+name: Nand2Tetris Tests
 on: [push]
 jobs:
   Hardware-Simulator-Test:
