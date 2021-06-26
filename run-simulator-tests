@@ -5,9 +5,21 @@ set -u
 
 files=$(find projects/{01,02,03} -name '*.tst' -type f)
 
+echo "--- Running hardware simulator tests ---"
 [[ -n ${files} ]] && {
     for file in ${files}; do
-        echo "Running test file: ${file}"
+        echo "Test file: ${file}"
         $(pwd)/tools/HardwareSimulator.sh ${file}
     done
 }
+echo "--- Finished running hardware simulator tests ---"
+
+echo "--- Running CPU emulator tests ---"
+files=$(find projects/04 -name '*.tst' -type f | grep -v 'Fill.tst')
+[[ -n ${files} ]] && {
+    for file in ${files}; do
+        echo "Test file: ${file}"
+        $(pwd)/tools/CPUEmulator.sh ${file}
+    done
+}
+echo "--- Finished running CPU emulator tests ---"
