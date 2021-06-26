@@ -1,7 +1,7 @@
 name: Nand2Tetris Tests
 on: [push]
 jobs:
-  Hardware-Simulator-Test:
+  Nand2Tetris-Tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout respository code
