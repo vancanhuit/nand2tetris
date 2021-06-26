@@ -6,6 +6,6 @@ jobs:
     steps:
       - name: Checkout respository code
         uses: actions/checkout@v2
-      - name: Run hardware simulator tests
+      - name: Run tests
         run: ./run-simulator-tests
 
