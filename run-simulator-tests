@@ -3,7 +3,7 @@
 set -e
 set -u
 
-files=$(find projects/{01,02,03} -name '*.tst' -type f)
+files=$(find projects/{01,02,03,05} -name '*.tst' -type f | grep -v 'Memory.tst')
 
 echo "--- Running hardware simulator tests ---"
 [[ -n ${files} ]] && {
