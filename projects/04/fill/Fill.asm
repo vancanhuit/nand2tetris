@@ -63,7 +63,7 @@
     
     @R2 // A = 2
     A=M // A = RAM[2]
-    M=D // RAM[RAM[2]] = RAM[RAM[addr] + RAM[i]] = D = RAM[color]
+    M=D // RAM[RAM[2]] = RAM[RAM[addr] + RAM[i]] = D = RAM[1]
     
     @i // A = i
     M=M+1 // RAM[i] = RAM[i] + 1
