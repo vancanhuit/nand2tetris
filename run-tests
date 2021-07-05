@@ -14,7 +14,7 @@ echo "--- Running hardware simulator tests ---"
 }
 echo "--- Finished running hardware simulator tests ---"
 
-echo "--- Running CPU emulator tests ---"
+echo "--- Running assembly tests ---"
 files=$(find projects/04 -name '*.tst' -type f | grep -v 'Fill.tst')
 [[ -n ${files} ]] && {
     for file in ${files}; do
@@ -22,4 +22,20 @@ files=$(find projects/04 -name '*.tst' -type f | grep -v 'Fill.tst')
         $(pwd)/tools/CPUEmulator.sh ${file}
     done
 }
-echo "--- Finished running CPU emulator tests ---"
+echo "--- Finished running assembly tests ---"
+
+echo "--- Running assembler tests ---"
+files=$(find projects/06 -name '*.asm' -type f)
+[[ -n ${files} ]] && {
+    for file in ${files}; do
+        echo "Using built-in assembler"
+        tools/Assembler.sh ${file}
+        echo "Using assembler.py"
+        projects/06/assembler.py ${file}
+        diff ${file%.asm}.hack ${file}.hack && {
+            echo "Comparison ended successfully"
+        }
+    done
+}
+
+echo "-- Finished running assembler tests ---"
